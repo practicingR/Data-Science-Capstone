@@ -1,0 +1,51 @@
+---
+title: "Data Science Capstone Deck"
+author: "Vicky C"
+date: "Aug 17, 2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+In this Data Science Capstone, Johns Hopkins partnered with SwiftKey to create a
+project where we work on predictive text analytics.
+The goal for this project is to create an app that predicts the next word based 
+on a string of words provided by the user.
+The Shiny App can be found [here](www.google.com) and the coding can be found
+[here](www.google.com).
+
+## Exploring and Cleaning the Data
+
+We used three files to create our prediction model from: en_US.blog.txt,
+en_US.news.txt, and en_US.twitter.txt.
+
+We used 10% of each data set to create a sample data set. We then cleaned the
+sample data to make all words lowercase and remove all punctuation, numbers, and
+white spaces usuing Corpus.
+
+Then, we used ngrams and tokenization to create a function that counts the 
+frequency of each word or word combination. We then created 4 separate files
+labeled unigram (one word list), bigram (two words list), trigram (three words 
+list), and quadgram (four words list).
+
+
+
+## Description of Algorithm used to make Prediction
+The app first takes in a string a words from the user.
+
+To make a prediction on the next word, the algorithm first looked at the quadgram
+file to compare to the three words inputted by the user and see if any matched.
+If not, then it would look at the trigam file and look at the two words the user
+inputted to see if any matched. If not, this same process was repeated for the 
+bigram and the unigram files t osee if any matched.
+
+## Example of how App functions
+
+```{r pressure}
+plot(pressure)
+```
+
