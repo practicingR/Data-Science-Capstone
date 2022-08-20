@@ -132,14 +132,14 @@ newData <- VCorpus(VectorSource(newData))
 newData <- cleanData(newData)
 
 
-### N-Grams function
+# N-Grams function
 Ngram <- function(corpus, n) {
     token <- function(x) NGramTokenizer(x, Weka_control(min=n, max=n))
     tdm <- TermDocumentMatrix(corpus, control=list(tokenize=token))
     tdm
 }
 
-### Function to calculate the frequency of each word or word combo
+# Function to calculate the frequency of each word or word combo
 
 Ngramfreq <- function(tdm, freq) {
     tdm.freq <- findFreqTerms(tdm, lowfreq = freq)
@@ -150,7 +150,7 @@ Ngramfreq <- function(tdm, freq) {
 }
 
 
-### Calculate the ngrams
+# Calculate the ngrams
 
 tdm1gram <- Ngram(newData, 1) %>% 
     removeSparseTerms(0.99)
@@ -164,14 +164,13 @@ tdm3gram <- Ngram(newData, 3) %>%
 tdm4gram <- Ngram(newData, 4) %>% 
     removeSparseTerms(0.99999)
 
-### count frequency of n-grams
+# count freq of n-grams----
 freq1gram <- Ngramfreq(tdm1gram, 20)
 freq2gram <- Ngramfreq(tdm2gram, 20)
 freq3gram <- Ngramfreq(tdm3gram, 20)
 freq4gram <- Ngramfreq(tdm4gram, 20)
 
-### split n-grams into individual words and into a file
-
+# split n-grams into individual words----
 unigram <- data.frame(rows = rownames(freq1gram), count = freq1gram$frequency)
 unigram$rows <- as.character(unigram$rows)
 uni.split <- strsplit(unigram$rows, split = " ")
