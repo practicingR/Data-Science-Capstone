@@ -15,8 +15,8 @@ In this Data Science Capstone, Johns Hopkins partnered with SwiftKey to create a
 project where we work on predictive text analytics.
 The goal for this project is to create an app that predicts the next word based 
 on a string of words provided by the user.
-The Shiny App can be found [here](www.google.com) and the coding can be found
-[here](www.google.com).
+The Shiny App can be found [here](https://practicingr.shinyapps.io/CapstoneApp/) and the coding can be found
+[here](https://github.com/practicingR/Data-Science-Capstone).
 
 ## Exploring and Cleaning the Data
 
@@ -38,14 +38,13 @@ list), and quadgram (four words list).
 The app first takes in a string a words from the user.
 
 To make a prediction on the next word, the algorithm first looked at the quadgram
-file to compare to the three words inputted by the user and see if any matched.
-If not, then it would look at the trigam file and look at the two words the user
+file to compare to the last three words inputted by the user and see if any matched.
+If not, then it would look at the trigam file and look at the last two words the user
 inputted to see if any matched. If not, this same process was repeated for the 
-bigram and the unigram files t osee if any matched.
+bigram and the unigram files to see if any matched.
 
 ## Example of how App functions
 
-```{r pressure}
-plot(pressure)
+```{r, out.width="100%"}
+knitr::include_graphics("Predicted Word App Screenshot.jpg")
 ```
-
